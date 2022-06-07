@@ -10,10 +10,9 @@ import Rank from './components/Rank/Rank';
 import './App.css';
  
 const particlesOptions = {
-  //customize this to your liking
   particles: {
     number: {
-      value: 30,
+      value: 100,
       density: {
         enable: true,
         value_area: 800
@@ -76,7 +75,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:3000/imageurl', {
+      fetch('https://hidden-savannah-63107.herokuapp.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -86,7 +85,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://hidden-savannah-63107.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
